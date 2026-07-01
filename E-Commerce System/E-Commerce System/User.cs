@@ -30,6 +30,7 @@ namespace E_Commerce_System
         public string? phoneNumber { get; set; }//user input
         [MaxLength(300)] public string? address { get; set; }//user input
         public DateTime? registrationDate { get; set; }//user input
-        public bool isActive { get; set; }//defult true }
+        public bool isActive { get; set; } = true; //defult true 
+
     }
 }
