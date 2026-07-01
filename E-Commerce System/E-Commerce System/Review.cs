@@ -14,18 +14,18 @@ namespace E_Commerce_System
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int reviewId {  get; set; }//system generate
         [ForeignKey(nameof(User))]
-        public int userId { get; set; }//list user
+        public int userId { get; set; }// foreign key
         [ForeignKey(nameof(Product))]
-        public int productId { get; set; }//list product
+        public int productId { get; set; }// foreign key
         [Required]
         [Range(1, 5)]
         public int rating { get; set; }//user input
         [MaxLength(1000)]
         public string ?comment { get; set; }//user input
         [Required]
-        public DateTime reviewDate { get; set; }//user input
+        public DateTime reviewDate { get; set; }// system generated
 
-        public Product product { get; set; }//navegation
-        public User user { get; set; }//navegation
+        public Product Product { get; set; }//navegation
+        public User User { get; set; }//navegation
     }
 }
