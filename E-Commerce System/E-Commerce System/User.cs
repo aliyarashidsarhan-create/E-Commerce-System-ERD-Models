@@ -1,0 +1,33 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace E_Commerce_System
+{
+    [Index(nameof(username), IsUnique = true)]
+    [Index(nameof(email), IsUnique = true)]
+    public class User
+    {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int userId { get; set; }//system generate
+        [Required]
+        [MaxLength(50)]
+        public string username { get; set; }//user Input
+        [Required, MaxLength(150)]
+        public string email { get; set; }//user input
+        [Required]
+        [MaxLength(256)]
+        public string passwordHash { get; set; }//user input
+        [Required]
+        [MaxLength(100)]
+        public string fullName { get; set; }//user input
+        [MaxLength(20)]
+        public string? phoneNumber { get; set; }//user input
+        [MaxLength(300)] public string? address { get; set; }//user input
+        public DateTime? registrationDate { get; set; }//user input
+        public bool isActive { get; set; }//defult true }
+    }
+}
