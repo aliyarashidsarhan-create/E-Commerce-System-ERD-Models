@@ -24,5 +24,8 @@ namespace E_Commerce_System
         public string ?comment { get; set; }//user input
         [Required]
         public DateTime reviewDate { get; set; }//user input
+
+        public Product product { get; set; }//navegation
+        public User user { get; set; }//navegation
     }
 }

@@ -20,6 +20,8 @@ namespace E_Commerce_System
         [MaxLength(500)]
         public string ?description { get; set; }//user input
         [MaxLength (300)]
-        public string ?imageUrl { get; set; }//
+        public string ?imageUrl { get; set; }//user input
+
+        public ICollection<Product>Products { get; set; }= new List<Product>();//navegation
     }
 }

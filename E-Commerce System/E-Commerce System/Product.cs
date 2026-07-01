@@ -19,18 +19,24 @@ namespace E_Commerce_System
         [MaxLength(1000)]
         public string ? description { get; set; }//user input
         [Required]
-        [Range(1, 1000)]
-        public decimal price { get; set; }//
+        [Range(0.01, double.MaxValue)]
+        public decimal price { get; set; } // user input
         [Required]
-       
+        [Range(0, int.MaxValue)]
         public int stockQuantity { get; set; } = 0;//user input defult 0
         [MaxLength(300)]
         public string ?imageUrl { get; set; }
         [ForeignKey(nameof(Category))]
         public int categoryId {  get; set; }//foregn key
         [Required]
-        public DateTime createdAt { get; set; }//user input
-        public bool isAvailable { get; set; }//defult true
+        public DateTime createdAt { get; set; }// system generated
+        public bool isAvailable { get; set; } = true;//defult true
+
+        public Category Category { get; set; }//navegation
+
+        public ICollection<Review>Reviews { get; set; }= new List<Review>();//navegation
+
+        public ICollection<OrderItem> OrderItems { get; set; } = new List<OrderItem>();
 
     }
 }

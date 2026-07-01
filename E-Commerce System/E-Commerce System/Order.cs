@@ -28,5 +28,7 @@ namespace E_Commerce_System
         [Required]
         [MaxLength (50)]
         public string paymentMethod { get; set; }//user input
+
+        public User User { get; set; }//navigation
     }
 }
