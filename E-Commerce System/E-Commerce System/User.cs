@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace E_Commerce_System
 {
-    [Index(nameof(username), IsUnique = true)]
-    [Index(nameof(email), IsUnique = true)]
+    //[Index(nameof(username), IsUnique = true)]
+    //[Index(nameof(email), IsUnique = true)]
     public class User
     {
         [Key]

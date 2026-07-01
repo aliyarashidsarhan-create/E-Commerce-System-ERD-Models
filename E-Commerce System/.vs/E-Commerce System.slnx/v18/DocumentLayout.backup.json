@@ -3,8 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\aliya\\OneDrive\\Desktop\\back\\Ecom\\E-Commerce System\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{529FE4AE-6487-4210-9583-B89BAAE78C2B}|E-Commerce System\\E-Commerce System.csproj|c:\\users\\aliya\\onedrive\\desktop\\back\\ecom\\e-commerce system\\e-commerce system\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{529FE4AE-6487-4210-9583-B89BAAE78C2B}|E-Commerce System\\E-Commerce System.csproj|solutionrelative:e-commerce system\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F1807B03-F323-E392-AFA9-6D22C1195223}|E-Commerce System\\E-Commerce System.csproj|c:\\users\\aliya\\onedrive\\desktop\\back\\ecom\\e-commerce system\\e-commerce system\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F1807B03-F323-E392-AFA9-6D22C1195223}|E-Commerce System\\E-Commerce System.csproj|solutionrelative:e-commerce system\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F1807B03-F323-E392-AFA9-6D22C1195223}|E-Commerce System\\E-Commerce System.csproj|c:\\users\\aliya\\onedrive\\desktop\\back\\ecom\\e-commerce system\\e-commerce system\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F1807B03-F323-E392-AFA9-6D22C1195223}|E-Commerce System\\E-Commerce System.csproj|solutionrelative:e-commerce system\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F1807B03-F323-E392-AFA9-6D22C1195223}|E-Commerce System\\E-Commerce System.csproj|c:\\users\\aliya\\onedrive\\desktop\\back\\ecom\\e-commerce system\\e-commerce system\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F1807B03-F323-E392-AFA9-6D22C1195223}|E-Commerce System\\E-Commerce System.csproj|solutionrelative:e-commerce system\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F1807B03-F323-E392-AFA9-6D22C1195223}|E-Commerce System\\E-Commerce System.csproj|c:\\users\\aliya\\onedrive\\desktop\\back\\ecom\\e-commerce system\\e-commerce system\\review.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F1807B03-F323-E392-AFA9-6D22C1195223}|E-Commerce System\\E-Commerce System.csproj|solutionrelative:e-commerce system\\review.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F1807B03-F323-E392-AFA9-6D22C1195223}|E-Commerce System\\E-Commerce System.csproj|c:\\users\\aliya\\onedrive\\desktop\\back\\ecom\\e-commerce system\\e-commerce system\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F1807B03-F323-E392-AFA9-6D22C1195223}|E-Commerce System\\E-Commerce System.csproj|solutionrelative:e-commerce system\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F1807B03-F323-E392-AFA9-6D22C1195223}|E-Commerce System\\E-Commerce System.csproj|c:\\users\\aliya\\onedrive\\desktop\\back\\ecom\\e-commerce system\\e-commerce system\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F1807B03-F323-E392-AFA9-6D22C1195223}|E-Commerce System\\E-Commerce System.csproj|solutionrelative:e-commerce system\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -22,7 +42,69 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Review.cs",
+              "DocumentMoniker": "C:\\Users\\aliya\\OneDrive\\Desktop\\back\\Ecom\\E-Commerce System\\E-Commerce System\\Review.cs",
+              "RelativeDocumentMoniker": "E-Commerce System\\Review.cs",
+              "ToolTip": "C:\\Users\\aliya\\OneDrive\\Desktop\\back\\Ecom\\E-Commerce System\\E-Commerce System\\Review.cs",
+              "RelativeToolTip": "E-Commerce System\\Review.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-01T07:30:30.809Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Order.cs",
+              "DocumentMoniker": "C:\\Users\\aliya\\OneDrive\\Desktop\\back\\Ecom\\E-Commerce System\\E-Commerce System\\Order.cs",
+              "RelativeDocumentMoniker": "E-Commerce System\\Order.cs",
+              "ToolTip": "C:\\Users\\aliya\\OneDrive\\Desktop\\back\\Ecom\\E-Commerce System\\E-Commerce System\\Order.cs",
+              "RelativeToolTip": "E-Commerce System\\Order.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-01T07:30:15.082Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Product.cs",
+              "DocumentMoniker": "C:\\Users\\aliya\\OneDrive\\Desktop\\back\\Ecom\\E-Commerce System\\E-Commerce System\\Product.cs",
+              "RelativeDocumentMoniker": "E-Commerce System\\Product.cs",
+              "ToolTip": "C:\\Users\\aliya\\OneDrive\\Desktop\\back\\Ecom\\E-Commerce System\\E-Commerce System\\Product.cs",
+              "RelativeToolTip": "E-Commerce System\\Product.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-01T07:30:00.662Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Category.cs",
+              "DocumentMoniker": "C:\\Users\\aliya\\OneDrive\\Desktop\\back\\Ecom\\E-Commerce System\\E-Commerce System\\Category.cs",
+              "RelativeDocumentMoniker": "E-Commerce System\\Category.cs",
+              "ToolTip": "C:\\Users\\aliya\\OneDrive\\Desktop\\back\\Ecom\\E-Commerce System\\E-Commerce System\\Category.cs*",
+              "RelativeToolTip": "E-Commerce System\\Category.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-01T07:29:47.884Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\aliya\\OneDrive\\Desktop\\back\\Ecom\\E-Commerce System\\E-Commerce System\\User.cs",
+              "RelativeDocumentMoniker": "E-Commerce System\\User.cs",
+              "ToolTip": "C:\\Users\\aliya\\OneDrive\\Desktop\\back\\Ecom\\E-Commerce System\\E-Commerce System\\User.cs",
+              "RelativeToolTip": "E-Commerce System\\User.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-01T07:29:34.464Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\aliya\\OneDrive\\Desktop\\back\\Ecom\\E-Commerce System\\E-Commerce System\\Program.cs",
               "RelativeDocumentMoniker": "E-Commerce System\\Program.cs",
