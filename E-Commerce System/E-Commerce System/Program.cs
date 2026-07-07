@@ -189,6 +189,65 @@ namespace E_Commerce_System
         }
         public static void ProductReview()
         {
+            Console.WriteLine("\n=== Product Review ===");
+
+            //user 
+            foreach (User u in context.Users)
+            { 
+                Console.WriteLine($"Id:{u.userId} | Name:{u.fullName}");
+            }
+
+            Console.WriteLine("Enter User Id:");
+            int userId=int.Parse (Console.ReadLine());
+
+            //serch user
+            User user=context.Users.FirstOrDefault (u=>u.userId == userId);
+            if (user == null)
+            {
+                Console.WriteLine("User Not Found");
+                return;
+            }
+
+            foreach (Product p in context.Products)
+            {
+                Console.WriteLine($"Id:{p.productId}|name{p.productName}");
+            }
+
+            Console.WriteLine("Enter Product Id:");
+            int productId=int.Parse (Console.ReadLine());
+
+            Product product=context.Products.FirstOrDefault (u=>u.productId == productId);
+            if (product == null)
+            {
+                Console.WriteLine("product not found ");
+                return;
+            }
+
+            Console.WriteLine("Enter Rating (1-5)");
+            int rate=int.Parse (Console.ReadLine());
+            //validate rate
+
+            Console.WriteLine("Enter Comment (Optional)");
+            string comment=Console.ReadLine();
+
+            Review review = new Review
+            {
+                userId=userId,
+                User=user,
+                productId=productId,
+                Product=product,
+                rating=rate,
+                comment=comment,
+                reviewDate=DateTime.Now,
+
+            };
+            context.Reviews.Add(review);
+           
+
+            context.SaveChanges();
+
+            Console.WriteLine($"Review Added Successfully!:Review Id:{review.reviewId}");
+
 
         }
 
@@ -218,7 +277,7 @@ namespace E_Commerce_System
                 int option =int.Parse(Console.ReadLine());
 
                 switch (option)
-                { }
+                { 
             case1: RegisterUser();
                   break;
                    case2: AddNewProduct();
@@ -246,5 +305,6 @@ namespace E_Commerce_System
         }
         }
 }
+
 
 
