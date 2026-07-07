@@ -294,14 +294,10 @@ namespace E_Commerce_System
         public static void CancelOrder()
         {
             Console.WriteLine("\n=== Cancel an Order ===");
-            //find order
-            foreach(Order o in context.Orders.ToList())
-            {
-                Console.WriteLine($"Id:{o.orderId}|userid:{o.userId}status:{o.status}");
-            }
 
             Console.WriteLine("Enter Order Id");
-            int orderId= int.Parse (Console.ReadLine());
+            int orderId = int.Parse(Console.ReadLine());
+
             //check if order exist
 
             Order order = context.Orders.FirstOrDefault(o => o.orderId == orderId);
@@ -311,28 +307,25 @@ namespace E_Commerce_System
                 return;
 
             }
-            // cancel a pending order
-            if(order.status!="Pending")
+            else
             {
-                Console.WriteLine("Only cancell pending order");
-            }
+                List<OrderItem> items = context.OrderItems
+                                .Where(i => i.orderId == orderId)
+                                .ToList();
 
-            //order item 
-            List<OrderItem> items = context.OrderItems
-                                 .Where(i => i.orderId == orderId)
-                                 .ToList();
-           
-
-            //find product
-            foreach (OrderItem item in items)
-            {
-                Product product = context.Products.FirstOrDefault(p => p.productId == items.productId);
-
-                if (product != null)
+                foreach (OrderItem item in items)
                 {
-                    product.stockQuantity += items.productId;
+                    Product product = context.Products
+                        .FirstOrDefault(p => p.productId == items.productId);
 
-                 }
+                  
+                        product.stockQuantity += items.;
+
+              
+
+                }
+            
+            
             order.status = "Cancelled";
             context.SaveChanges();
             Console.WriteLine("'\nOrder cancelled successfully.'");
@@ -373,8 +366,25 @@ namespace E_Commerce_System
         {
             Console.WriteLine("\n=== View All Products  ===");
 
+            // Get all products
+            List<Product>products=context.Products.ToList();
+            if (products.Count == 0)
+            {
+                Console.WriteLine("No product found");
+            }
+
+                // Display all products
+                foreach (Product p in context.Products)
+            {
+                Console.WriteLine($"Name:{p.productName}|Price:{p.price}|stock:{p.stockQuantity}+" +
+                    $"Available :{p.isAvailable}");
+            }
+
+            
+
 
         }
+      
         // Filter Products by Category and Price Range
         public static void FilterProduct()
         {
