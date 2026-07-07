@@ -123,14 +123,75 @@ namespace E_Commerce_System
             context.Products.Add(newProduct);
             context.SaveChanges();
 
-            Console.WriteLine("\nProdect Added Successfully!");
-            Console.WriteLine("New Prodect Id :" +newProduct.productId);
+            //view all product
+            foreach (Product p in context.Products)
+            {
+                Console.WriteLine($"ID:{p.productId}|{p.productName}|price{p.price}"+
+                   $"|stock {p.stockQuantity}|category:{p.Category.categoryName}|Available:{p.isAvailable}" );
+            }
+                Console.WriteLine("\nProdect Added Successfully!");
+            Console.WriteLine("New Prodect Id :" + newProduct.productId);
         }
+        
         public static void PlaceOrder()
         {
+            Console.WriteLine("\n=== Place New Order ===");
+            //display user
+            Console.WriteLine("Users:");
+            foreach(User u in context.Users)
+            {
+                Console.WriteLine($"Id:{u.userId}Name:{u.fullName}");
+            }
+            //choose user
 
+            Console.WriteLine("Enter User Id:");
+            int userId=int.Parse(Console.ReadLine());
+
+            //check if user exist
+            User user=context.Users.FirstOrDefault(u=>u.userId == userId);
+
+           if(user == null)
+            {
+                Console.WriteLine("User Not Found ");
+                return;
+            }
+
+           Console.WriteLine("Enter Shopping address");
+            string shopAddress= Console.ReadLine();
+
+            Console.WriteLine("Enter Payment method");
+            string payment= Console.ReadLine();
+
+           //create order 
+
+            Order order = new Order
+            {
+            
+                userId=userId,
+                User=user,
+                orderDate=DateTime.Now,
+                totalAmount=0,
+                status="Pending",
+                shippingAddress=shopAddress,
+                paymentMethod=payment
+
+            };
+
+
+            //add  order 
+
+            context.Orders.Add(order);
+            context.SaveChanges();
+            //display product
+
+            //loop
 
         }
+        public static void ProductReview()
+        {
+
+        }
+
         static void Main(string[] args)
         {
             bool exit = false;
@@ -156,13 +217,13 @@ namespace E_Commerce_System
                 Console.WriteLine("Select option");
                 int option =int.Parse(Console.ReadLine());
 
-                switch(option)
-                {
-                 case1: RegisterUser();
-                break;
+                switch (option)
+                { }
+            case1: RegisterUser();
+                  break;
                    case2: AddNewProduct();
-                break;
-             case3: PlaceOrder();
+                 break;
+                case3: PlaceOrder();
                 break;
                  case 0:
                     exit = true;

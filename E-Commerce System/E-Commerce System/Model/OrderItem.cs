@@ -10,18 +10,28 @@ namespace E_Commerce_System.Model
 {
     public class OrderItem
     {
-        [Key ]
+        [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int orderItemId { get; set; }// system generated
+
+        [Range(1, 999)]
+        public int quantity { get; set; } // user input
+
         [ForeignKey(nameof(Order))]
         public int orderId { get; set; } // foreign key
+
+        public Order Order { get; set; }//navegation
+
+
         [ForeignKey(nameof(Product))]
         public int productId { get; set; } // foreign key
         [Required]
-        [Range(1, 999)]
-        public int quantity { get; set; } // user input
-        public Order Order { get; set; }//navegation
+
         public Product Product { get; set; }//navegation
 
+        [Required]
+        [Column(TypeName = "decimal(10,2)")]
+        public decimal unitPrice {  get; set; } //calculate price
     }
+   
 }
