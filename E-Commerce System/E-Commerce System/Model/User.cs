@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace E_Commerce_System
+namespace E_Commerce_System.Model
 {
     //[Index(nameof(username), IsUnique = true)]
     //[Index(nameof(email), IsUnique = true)]

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace E_Commerce_System
+namespace E_Commerce_System.Model
 {
     public class Product
     {
@@ -19,6 +19,7 @@ namespace E_Commerce_System
         [MaxLength(1000)]
         public string ? description { get; set; }//user input
         [Required]
+        [Column(TypeName ="decimal(10,2")]
         [Range(0.01, double.MaxValue)]
         public decimal price { get; set; } // user input
         [Required]

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace E_Commerce_System
+namespace E_Commerce_System.Model
 {
     //[Index(nameof(categoryName), IsUnique = true)]
     public class Category

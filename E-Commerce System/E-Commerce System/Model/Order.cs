@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace E_Commerce_System
+namespace E_Commerce_System.Model
 {
    public class Order
     {
@@ -18,6 +18,7 @@ namespace E_Commerce_System
         [Required]
         public DateTime orderDate { get; set; }// system generated
         [Required]
+        [Column (TypeName ="decimal(10,2")]
         [Range(0, double.MaxValue)]
         public decimal totalAmount { get; set; }//calculate
         [Required]
