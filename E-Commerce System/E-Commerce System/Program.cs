@@ -294,8 +294,52 @@ namespace E_Commerce_System
         public static void CancelOrder()
         {
             Console.WriteLine("\n=== Cancel an Order ===");
+            //find order
+            foreach(Order o in context.Orders.ToList())
+            {
+                Console.WriteLine($"Id:{o.orderId}|userid:{o.userId}status:{o.status}");
+            }
+
+            Console.WriteLine("Enter Order Id");
+            int orderId= int.Parse (Console.ReadLine());
+            //check if order exist
+
+            Order order = context.Orders.FirstOrDefault(o => o.orderId == orderId);
+            if (order == null)
+            {
+                Console.WriteLine("order not Exist ");
+                return;
+
+            }
+            // cancel a pending order
+            if(order.status!="Pending")
+            {
+                Console.WriteLine("Only cancell pending order");
+            }
+
+            //order item 
+            List<OrderItem> items = context.OrderItems
+                                 .Where(i => i.orderId == orderId)
+                                 .ToList();
+           
+
+            //find product
+            foreach (OrderItem item in items)
+            {
+                Product product = context.Products.FirstOrDefault(p => p.productId == items.productId);
+
+                if (product != null)
+                {
+                    product.stockQuantity += items.productId;
+
+                 }
+            order.status = "Cancelled";
+            context.SaveChanges();
+            Console.WriteLine("'\nOrder cancelled successfully.'");
 
         }
+        }
+
         //7-Delete a Review
         public static void DeleteReview()
         {
