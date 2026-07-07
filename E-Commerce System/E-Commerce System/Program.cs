@@ -345,7 +345,29 @@ namespace E_Commerce_System
         {
             Console.WriteLine("\n=== Delete a Review ===");
 
+            // Display all reviews
+            foreach (Review r in context.Reviews) 
+            {
+                Console.WriteLine($"review I:{r.reviewId}userid:{r.userId}prodectId:{r.productId}");
+            }
+
+            Console.WriteLine("Enter Review Id");
+            int reviewId= int.Parse (Console.ReadLine());
+
+            //find reviw
+            Review review = context.Reviews.FirstOrDefault(r=>r.reviewId == reviewId);
+            if(review == null) 
+            {
+                Console.WriteLine("Review not found");
+            }
+            //delete Review
+            context.Reviews.Remove(review);
+            //save 
+            context.SaveChanges();
+
+            Console.WriteLine("\nReview deleted successfully.");
         }
+
         //View All Products 
         public static void ViewAllProduct()
         {
