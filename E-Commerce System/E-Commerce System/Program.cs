@@ -389,8 +389,42 @@ namespace E_Commerce_System
         public static void FilterProduct()
         {
             Console.WriteLine("\n=== Filter Products by Category and Price Range ===");
+            // Display categories
+
+            foreach(Category c in context.Categories)
+            {
+                Console.WriteLine($"Id:{c.categoryId}|Name:{c.categoryName}");
+            }
+
+            Console.WriteLine("Enter Category Id");
+            int categoryId= int.Parse (Console.ReadLine());
+
+            Console.Write("Enter Minimum Price: ");
+            decimal minPrice = decimal.Parse(Console.ReadLine());
+
+            Console.Write("Enter Maximum Price: ");
+            decimal maxPrice = decimal.Parse(Console.ReadLine());
+
+            List<Product>products=context.Products
+                .Where(p=>p.categoryId == categoryId && p.price>=minPrice&&p.price<=maxPrice)
+                .OrderBy(p=>p.price)
+                .ToList();
+
+            if(products.Count == 0)
+            {
+                Console.Write("No product Found ");
+                return;
+            }
+
+            Console.Write("Filterd product: ");
+            foreach (Product p in products)
+            {
+                Console.WriteLine($"Id:{p.productId}|Name:{p.productName}| price:{p.price}");
+            }
 
         }
+
+        
         //Get Category with All Its Products (Include)
         public static void GetCategory()
         {
