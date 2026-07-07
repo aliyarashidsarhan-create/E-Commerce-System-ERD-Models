@@ -53,20 +53,84 @@ namespace E_Commerce_System
             context.Users.Add(newUser);
             //save change
             context.SaveChanges();
-
-            Console.WriteLine("\nUser Registered Successfully!");
-            Console.WriteLine("New user Id :"+newUser.userId);
+            //view all user
+            foreach(User u in context.Users)
+            {
+                Console.WriteLine($"Id:{u.userId} | userName:{u.username} Name{u.fullName}"+
+                     $"Email:{u.email}");
+            }
+         Console.WriteLine("\nUser Registered Successfully!");
+          
 
 
           
 
         }
+        //add new product
         public static void AddNewProduct()
         {
             Console.WriteLine("\n=== Add New Product ===");
 
-        }
+            //display category
+            List<Category>categories=context.Categories.ToList();
+            Console.WriteLine("Available category :");
+           
+            foreach(Category c in categories) 
+            {
+                Console.WriteLine($"Id:{c.categoryId}|{c.categoryName}|");
+            }
 
+
+            Console.WriteLine("Enter Category Id");
+            int categoryid=int.Parse(Console.ReadLine());
+
+            // Check that the category exists
+            Category category =context.Categories.FirstOrDefault(c=>c.categoryId== categoryid);
+        
+            if(category == null)
+            {
+                Console.WriteLine("Category Not Found .");
+                return;
+            }
+
+            Console.WriteLine("Enter product name");
+            string productName=Console.ReadLine();
+
+            Console.WriteLine("Enter Description (optonal):");
+            string description=Console.ReadLine();
+
+            Console.WriteLine("Enter Price:");
+            decimal price =decimal.Parse(Console.ReadLine());
+
+            Console.WriteLine("Enter stock quantity:");
+            int stock=int.Parse(Console.ReadLine());
+
+            Console.Write("Enter Image URL (optional): ");
+            string image = Console.ReadLine();
+
+            Product newProduct = new Product
+            {
+                productName=productName,
+                description=description,
+                price=price,
+                imageUrl=image,
+                stockQuantity=stock,
+                categoryId = categoryid,
+                createdAt =DateTime.Now,
+                isAvailable=true
+
+            };
+            context.Products.Add(newProduct);
+            context.SaveChanges();
+
+            Console.WriteLine("\nProdect Added Successfully!");
+            Console.WriteLine("New Prodect Id :" +newProduct.productId);
+        }
+        public static void PlaceOrder()
+        {
+
+
+        }
         static void Main(string[] args)
         {
             bool exit = false;
@@ -93,18 +157,20 @@ namespace E_Commerce_System
                 int option =int.Parse(Console.ReadLine());
 
                 switch(option)
-                { }
-            case1: RegisterUser();
+                {
+                 case1: RegisterUser();
                 break;
                    case2: AddNewProduct();
+                break;
+             case3: PlaceOrder();
                 break;
                  case 0:
                     exit = true;
                     break;
 
                 default:
-                Console.WriteLine("Invalid option. Please try again.");
-                break;
+                    Console.WriteLine("Invalid option. Please try again.");
+                    break;
                 }
 
                 if(!exit)
