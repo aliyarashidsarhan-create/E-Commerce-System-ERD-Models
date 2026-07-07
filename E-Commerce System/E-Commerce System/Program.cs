@@ -307,31 +307,41 @@ namespace E_Commerce_System
                 return;
 
             }
-            else
+            if (order.status != "Pending")
             {
+                Console.WriteLine("Only pending orders can be cancelled.");
+                return;
+            }
+           //order item
+
                 List<OrderItem> items = context.OrderItems
                                 .Where(i => i.orderId == orderId)
                                 .ToList();
 
-                foreach (OrderItem item in items)
+                foreach (OrderItem i in items)
                 {
                     Product product = context.Products
-                        .FirstOrDefault(p => p.productId == items.productId);
+                        .FirstOrDefault(p => p.productId == i.productId);
 
-                  
-                        product.stockQuantity += items.;
+                   
 
-              
+                    if (product != null)
+                    {
+                        product.stockQuantity += i.quantity;
+                    }
+
+
 
                 }
-            
-            
-            order.status = "Cancelled";
-            context.SaveChanges();
-            Console.WriteLine("'\nOrder cancelled successfully.'");
+               
+
+                //cancell order 
+                order.status = "Cancelled";
+                context.SaveChanges();
+                Console.WriteLine("'\nOrder cancelled successfully.'");
 
         }
-        }
+        
 
         //7-Delete a Review
         public static void DeleteReview()
@@ -361,7 +371,7 @@ namespace E_Commerce_System
             Console.WriteLine("\nReview deleted successfully.");
         }
 
-        //View All Products 
+        //8 View All Products 
         public static void ViewAllProduct()
         {
             Console.WriteLine("\n=== View All Products  ===");
@@ -385,7 +395,7 @@ namespace E_Commerce_System
 
         }
       
-        // Filter Products by Category and Price Range
+        // 9- Filter Products by Category and Price Range
         public static void FilterProduct()
         {
             Console.WriteLine("\n=== Filter Products by Category and Price Range ===");
@@ -425,10 +435,21 @@ namespace E_Commerce_System
         }
 
         
-        //Get Category with All Its Products (Include)
+        //10Get Category with All Its Products (Include)
         public static void GetCategory()
         {
             Console.WriteLine("\n=== Get Category with All Its Products ===");
+
+
+        }
+        //11 View Order History 
+        public static void ViewOrderHistory()
+        {
+
+        }
+        //12 Product Summary Report
+        public static void ProductSummaryReport()
+        {
 
         }
         static void Main(string[] args)
@@ -453,22 +474,49 @@ namespace E_Commerce_System
                 Console.WriteLine("12- Product Summary Report");
                 Console.WriteLine(" 0  - Exit");
 
-                Console.WriteLine("Select option");
+                Console.WriteLine("Select option:");
                 int option =int.Parse(Console.ReadLine());
 
                 switch (option)
-                { }
-            case1: RegisterUser();
+                { 
+                  case 1: RegisterUser();
                   break;
-                   case2: AddNewProduct();
-                 break;
-                case3: PlaceOrder();
-                break;
-                 case 0:
+                  case 2: AddNewProduct();
+                  break;
+                  case 3: PlaceOrder();
+                  break;
+                  case 4:
+                        ProductReview();
+                        break;
+                  case 5:
+                        ProductPriceAndAvailability();
+                        break;
+                  case 6:
+                        CancelOrder();
+                        break;
+                   case 7:
+                        DeleteReview();
+                        break;
+                   case 8:
+                        ViewAllProduct();
+                        break;
+                   case 9:
+                        FilterProduct();
+                        break;
+                    case 10:
+                        GetCategory();
+                        break;
+                    case 11:
+                        ViewOrderHistory();
+                        break;
+                    case 12:
+                        ProductSummaryReport();
+                        break;
+                    case 0:
                     exit = true;
                     break;
 
-                default:
+                    default:
                     Console.WriteLine("Invalid option. Please try again.");
                     break;
                 }
