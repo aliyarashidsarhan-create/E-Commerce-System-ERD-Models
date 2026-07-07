@@ -132,7 +132,7 @@ namespace E_Commerce_System
                 Console.WriteLine("\nProdect Added Successfully!");
             Console.WriteLine("New Prodect Id :" + newProduct.productId);
         }
-        
+        //place order
         public static void PlaceOrder()
         {
             Console.WriteLine("\n=== Place New Order ===");
@@ -187,6 +187,7 @@ namespace E_Commerce_System
             //loop
 
         }
+        //4- product review
         public static void ProductReview()
         {
             Console.WriteLine("\n=== Product Review ===");
@@ -251,6 +252,75 @@ namespace E_Commerce_System
 
         }
 
+        //5-Update Product Price and Availability
+        public static void ProductPriceAndAvailability()
+        {
+            Console.WriteLine("\n=== Product Price and Availability ===");
+            //display all product 
+
+            foreach (Product p in context.Products)
+            {
+                Console.WriteLine($"Id:{p.productId}|Name:{p.productName}|price:{p.price}");
+            }
+
+            Console.WriteLine("Enter Prodect Id");
+            int productId= int.Parse (Console.ReadLine());
+            //find product
+            Product product = context.Products.FirstOrDefault(p => p.productId == productId);
+
+            if (product == null)
+            {
+                Console.WriteLine("product not found");
+                return;
+            }
+
+            //new price
+            Console.Write("Enter New Price: ");
+            decimal newPrice = decimal.Parse(Console.ReadLine());
+
+            //update
+            product.price = newPrice;
+            product.isAvailable = true;
+
+            //save
+            context.SaveChanges();
+
+            Console.WriteLine("product updated succedssfuly");
+            Console.WriteLine($"ProductId:{product.productId}|NewPrice{product.price} |is available:{product.isAvailable}");
+        }
+        
+
+        //6-Cancel an Order
+        public static void CancelOrder()
+        {
+            Console.WriteLine("\n=== Cancel an Order ===");
+
+        }
+        //7-Delete a Review
+        public static void DeleteReview()
+        {
+            Console.WriteLine("\n=== Delete a Review ===");
+
+        }
+        //View All Products 
+        public static void ViewAllProduct()
+        {
+            Console.WriteLine("\n=== View All Products  ===");
+
+
+        }
+        // Filter Products by Category and Price Range
+        public static void FilterProduct()
+        {
+            Console.WriteLine("\n=== Filter Products by Category and Price Range ===");
+
+        }
+        //Get Category with All Its Products (Include)
+        public static void GetCategory()
+        {
+            Console.WriteLine("\n=== Get Category with All Its Products ===");
+
+        }
         static void Main(string[] args)
         {
             bool exit = false;
@@ -277,7 +347,7 @@ namespace E_Commerce_System
                 int option =int.Parse(Console.ReadLine());
 
                 switch (option)
-                { 
+                { }
             case1: RegisterUser();
                   break;
                    case2: AddNewProduct();
