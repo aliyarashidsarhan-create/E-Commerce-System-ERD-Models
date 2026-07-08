@@ -67,18 +67,39 @@ namespace E_Commerce_System
           
 
         }
+
+        //first Add category
+        public static void AddCategory()
+        {
+            Console.Write("Enter Category Name: ");
+            string name = Console.ReadLine();
+
+            Console.Write("Enter Description: ");
+            string description = Console.ReadLine();
+
+            Category category = new Category
+            {
+                categoryName = name,
+                description = description
+            };
+
+            context.Categories.Add(category);
+            context.SaveChanges();
+
+            Console.WriteLine("Category added successfully.");
+        }
         //add new product
         public static void AddNewProduct()
         {
             Console.WriteLine("\n=== Add New Product ===");
-
+          
             //display category
             List<Category>categories=context.Categories.ToList();
-            Console.WriteLine("Available category :");
+            Console.WriteLine($"Num of Category:{categories.Count}");
            
             foreach(Category c in categories) 
             {
-                Console.WriteLine($"Id:{c.categoryId}|{c.categoryName}|");
+                Console.WriteLine($"Id:{c.categoryId}-{c.categoryName}|");
             }
 
 
@@ -86,7 +107,7 @@ namespace E_Commerce_System
             int categoryid=int.Parse(Console.ReadLine());
 
             // Check that the category exists
-            Category category =context.Categories.FirstOrDefault(c=>c.categoryId== categoryid);
+            Category category =categories.FirstOrDefault(c=>c.categoryId== categoryid);
         
             if(category == null)
             {
@@ -124,13 +145,9 @@ namespace E_Commerce_System
             context.Products.Add(newProduct);
             context.SaveChanges();
 
-            //view all product
-            foreach (Product p in context.Products)
-            {
-                Console.WriteLine($"ID:{p.productId}|{p.productName}|price{p.price}"+
-                   $"|stock {p.stockQuantity}|category:{p.Category.categoryName}|Available:{p.isAvailable}" );
-            }
-                Console.WriteLine("\nProdect Added Successfully!");
+            
+
+            Console.WriteLine("\nProdect Added Successfully!");
             Console.WriteLine("New Prodect Id :" + newProduct.productId);
         }
         //place order
@@ -543,6 +560,7 @@ namespace E_Commerce_System
                 Console.WriteLine("        E-Commerce System");
                 Console.WriteLine("========================================");
                 Console.WriteLine("1-Register a New User");
+                Console.WriteLine("14-AddCategory()");
                 Console.WriteLine("2-Add a New Product to a Category");
                 Console.WriteLine("3-Place an Order");
                 Console.WriteLine("4-Write a Product Review");
@@ -593,6 +611,8 @@ namespace E_Commerce_System
                         break;
                     case 12:
                         ProductSummaryReport();
+                        break;
+                    case 14: AddCategory();
                         break;
                     case 0:
                     exit = true;
