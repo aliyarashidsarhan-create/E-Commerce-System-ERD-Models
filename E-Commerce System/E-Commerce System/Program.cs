@@ -467,11 +467,41 @@ namespace E_Commerce_System
         //11 View Order History 
         public static void ViewOrderHistory()
         {
+            Console.WriteLine("\n===  View Order History with Full Details ===");
 
+            Console.WriteLine("Enter User Id");
+            int userId=int.Parse (Console.ReadLine());
+
+            User user=context.Users.Include(u=>u.Orders)
+                                   .ThenInclude(o=>o.orderItems)
+                                   .ThenInclude(i=>i.Product)
+                                   .FirstOrDefault(u=>u.userId== userId);
+
+            if (user == null)
+            {
+                Console.WriteLine("User Not Found!");
+                return;
+            }
+
+            Console.WriteLine($"Customer{user.username}");
+            //order
+            foreach(Order o in user.Orders)
+            {
+                Console.WriteLine($"OrderId:{o.orderId}date:{o.orderDate}status:{o.status}Total:{o.totalAmount}");
+
+
+                Console.WriteLine("Product");
+                //product inside each order
+            foreach(OrderItem i in o.orderItems)
+                {
+                    Console.WriteLine($"product{i.Product.productName}quantity{i.quantity}unitPrice:{i.unitPrice}");
+                }
+            }
         }
         //12 Product Summary Report
         public static void ProductSummaryReport()
         {
+            Console.WriteLine("\n=== Product Summary Report ===");
 
         }
         static void Main(string[] args)
