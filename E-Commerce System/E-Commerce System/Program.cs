@@ -1,4 +1,5 @@
 ﻿using E_Commerce_System.Model;
+using Microsoft.EntityFrameworkCore;
 
 namespace E_Commerce_System
 {
@@ -440,7 +441,28 @@ namespace E_Commerce_System
         {
             Console.WriteLine("\n=== Get Category with All Its Products ===");
 
+            Console.WriteLine("Enter Category Id:");
+            int categoryId=int.Parse (Console.ReadLine());
 
+            //load category with it product
+            Category category = context.Categories
+                              .Include(c=>c.Products)
+                              .FirstOrDefault(c=>c.categoryId== categoryId);
+
+            if (category == null)
+            {
+                Console.WriteLine("category Not Found");
+                return;
+            }
+
+            //display category details
+            Console.WriteLine($"CategoryId:{category.categoryId}Name:{category.categoryName}Description:{category.description}");
+
+            //product in category
+            foreach (Product p in category.Products)
+            {
+                Console.WriteLine($"Id:{p.productId}Name:{p.productName}Price:{p.price}stack:{p.stockQuantity}");
+            }
         }
         //11 View Order History 
         public static void ViewOrderHistory()
