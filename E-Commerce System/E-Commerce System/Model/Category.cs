@@ -22,6 +22,6 @@ namespace E_Commerce_System.Model
         [MaxLength (300)]
         public string ?imageUrl { get; set; }//user input
 
-        public ICollection<Product>Products { get; set; }= new List<Product>();//navegation
+        public virtual  List<Product>Products { get; set; }= new List<Product>();//navegation
     }
 }

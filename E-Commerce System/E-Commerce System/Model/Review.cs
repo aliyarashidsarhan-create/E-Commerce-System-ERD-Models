@@ -25,7 +25,7 @@ namespace E_Commerce_System.Model
         [Required]
         public DateTime reviewDate { get; set; }// system generated
 
-        public Product Product { get; set; }//navegation
-        public User User { get; set; }//navegation
+        public virtual Product Product { get; set; }//navegation
+        public virtual User User { get; set; }//navegation
     }
 }

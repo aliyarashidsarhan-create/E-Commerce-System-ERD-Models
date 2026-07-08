@@ -33,11 +33,11 @@ namespace E_Commerce_System.Model
         public DateTime createdAt { get; set; }// system generated
         public bool isAvailable { get; set; } = true;//defult true
 
-        public Category Category { get; set; }//navegation
+        public virtual Category Category { get; set; }//navegation
 
-        public ICollection<Review>Reviews { get; set; }= new List<Review>();//navegation
+        public virtual List<Review>Reviews { get; set; }= new List<Review>();//navegation
 
-        public ICollection<OrderItem> OrderItems { get; set; } = new List<OrderItem>();
+        public virtual  List<OrderItem> OrderItems { get; set; } = new List<OrderItem>();
 
     }
 }

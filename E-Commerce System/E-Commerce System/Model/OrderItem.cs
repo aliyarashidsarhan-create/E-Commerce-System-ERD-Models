@@ -20,14 +20,14 @@ namespace E_Commerce_System.Model
         [ForeignKey(nameof(Order))]
         public int orderId { get; set; } // foreign key
 
-        public Order Order { get; set; }//navegation
+        public virtual Order Order { get; set; }//navegation
 
 
         [ForeignKey(nameof(Product))]
         public int productId { get; set; } // foreign key
         [Required]
 
-        public Product Product { get; set; }//navegation
+        public virtual Product Product { get; set; }//navegation
 
         [Required]
         [Column(TypeName = "decimal(10,2)")]

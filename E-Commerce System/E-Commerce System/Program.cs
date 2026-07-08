@@ -503,6 +503,36 @@ namespace E_Commerce_System
         {
             Console.WriteLine("\n=== Product Summary Report ===");
 
+            //projection reading data from the Products table
+            var productlist = context.Products
+                                   .Select(p => new
+                                   {
+                                       p.productName,
+                                       CategoryName=p.Category.categoryName,
+                                       AvgRating=p.Reviews.Average(r=>r.rating),//use navegation property 
+                                       ReviewCount=p.Reviews.Count(),
+                                       p.stockQuantity
+
+                                   })
+                                  .ToList();
+            //loop every product
+
+            foreach (var item in productlist)
+            {
+                Console.WriteLine($"Name:{item.productName}Category:{item.CategoryName}+" +
+                    $"Avrege:{item.AvgRating}| count:{item.ReviewCount}|stack:{item.stockQuantity}");
+            }
+
+            // Part B - Lazy Loading Demo
+
+            Product product=context.Products
+                .FirstOrDefault(p=>p.productId== 1);
+
+            Console.WriteLine($"Product:{product.productName}");
+
+            int reviewCount=product.Reviews.Count();
+            Console.WriteLine($"Review count:{reviewCount}");
+
         }
         static void Main(string[] args)
         {

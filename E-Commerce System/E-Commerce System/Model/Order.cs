@@ -30,8 +30,8 @@ namespace E_Commerce_System.Model
         [MaxLength (50)]
         public string paymentMethod { get; set; }//user input
 
-        public User User { get; set; }//navigation
+        public virtual User User { get; set; }//navigation
 
-        public ICollection<OrderItem> orderItems { get; set; } = new List<OrderItem>();//navegation
+        public virtual List<OrderItem> orderItems { get; set; } = new List<OrderItem>();//navegation
     }
 }

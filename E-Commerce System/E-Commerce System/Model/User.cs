@@ -35,8 +35,8 @@ namespace E_Commerce_System.Model
         public DateTime registrationDate { get; set; }// system generated
         public bool isActive { get; set; } = true; //defult true 
 
-        public ICollection<Order> Orders { get; set; } = new List<Order>();//navegation property
+        public virtual List<Order> Orders { get; set; } = new List<Order>();//navegation property
 
-        public ICollection<Review>Reviews { get; set; }= new List<Review>();//navegation
+        public virtual List<Review>Reviews { get; set; }= new List<Review>();//navegation
     }
 }
